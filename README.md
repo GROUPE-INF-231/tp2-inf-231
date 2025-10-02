@@ -33,5 +33,5 @@ gcc deleteOccurences.c -o deleteOccurences
 - **DEMANOU FOUDJI Karl Albert Kuete 24F2995**
 - **ABONDO Jean Joël 23V2214**
 - **CHOUPO FOGAING Rudy Aubin 24G2708**
-- **BAKALACK BASILE Romain 23V2529**
+- **BAKALACK Basile Romain 23V2529**
 - **NGUIMGOU ZEPA Eveline Oceane 24F2579**
