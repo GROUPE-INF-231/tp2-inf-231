@@ -49,10 +49,10 @@ void display() {
     if (head == NULL) { printf("Liste vide\n"); return; }
     Node* temp = head;
     do {
-        printf("%d ", temp->data);
+        printf("%d -> ", temp->data);
         temp = temp->next;
     } while (temp != head);
-    printf("\n");
+    printf("NULL\n");
 }
 
 // Affichage en ordre inverse
@@ -61,10 +61,10 @@ void displayReverse() {
     Node* tail = head->prev; // dernier élément
     Node* temp = tail;
     do {
-        printf("%d ", temp->data);
+        printf("%d -> ", temp->data);
         temp = temp->prev;
     } while (temp != tail);
-    printf("\n");
+    printf("NULL\n");
 }
 
 int main() {
