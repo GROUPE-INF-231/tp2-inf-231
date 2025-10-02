@@ -13,7 +13,7 @@ Chaque programme est indépendant afin de faciliter la compréhension et l’ex�
 
 ##  Contenu des exercices / Nom des programmes
 
-1. **InsertListeDouble.c** – Insertion d'un element dans une liste doublement chainée triée.  
+1. **InsertListeDoubleTrie.c** – Insertion d'un element dans une liste doublement chainée triée.  
 2. **InsertTeteQueueLDCC.c** – Insertion en tete et en queue dans une liste doublement chainée circulaire.  
 3. **ajoutListeTriee.c** – Insertion d'un element dans une liste simplement chainée triée.  
 4. **deleteOccurences.c** – Suppresion de toute occurence d'un élément dans une liste simplement chainée. 
