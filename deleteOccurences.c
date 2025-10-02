@@ -71,6 +71,17 @@ void insertEnd(list** head, int data) {
     temp->next = newNode;
 }
 
+void freeList(list** head) {
+    list* current = *head;
+    list* nextNode;
+
+    while (current != NULL) {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
+}
+
 int main() {
     list* head = NULL;
     int i, nb, elm, del;
@@ -96,5 +107,6 @@ int main() {
     deleteElementOccurrence(&head, del);
     printList(head);
 
+    freeList(&head);
     return 0;
 }
