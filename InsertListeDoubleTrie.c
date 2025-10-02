@@ -50,9 +50,10 @@ void afficheListe(Liste *l)
     Liste *p = l;
     while (p != NULL)
     {
-        printf("%d ", p->val);
+        printf("%d -> ", p->val);
         p = p->suiv;
     }
+    printf("NULL\n");
 }
 
 int main()
