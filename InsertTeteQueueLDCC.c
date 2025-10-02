@@ -47,7 +47,7 @@ void insertTail(int x) {
 // Affichage en ordre normal
 void display() {
     if (head == NULL) { printf("Liste vide\n"); return; }
-    Node* temp = head;
+    Node* temp = head;⁷
     do {
         printf("%d -> ", temp->data);
         temp = temp->next;
@@ -85,6 +85,7 @@ int main() {
             case 3: display(); break;
             case 4: displayReverse(); break;
         }
+    
     } while (choix != 0);
 
     return 0;
