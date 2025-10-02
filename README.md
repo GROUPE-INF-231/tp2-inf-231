@@ -1,4 +1,4 @@
-#  INF 231_EC2 : STRUCTURE DE DONNÉES II – Exercices C
+#  INF 231_EC2 : STRUCTURE DE DONNÉES II – Exercices sur listes chainées
 
 ##  Superviseur   
 **PR. MELATAGIA Paulin**
