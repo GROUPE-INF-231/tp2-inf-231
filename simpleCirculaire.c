@@ -1,100 +1,82 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct linkedlist {
+typedef struct node {
     int data;
-    struct linkedlist* next;
-} list;
+    struct node *next;
+} node;
 
-list* createNode(int value) {
-    list* newNode = (list*)malloc(sizeof(list));
+node *head = NULL, *tail = NULL;
+
+void insertAtHead(int value) {
+    node *newNode = (node *)malloc(sizeof(node));
     if (!newNode) {
-        printf("Memory allocation failed!\n");
-        exit(EXIT_FAILURE);
-    }
-    newNode->data = value;
-    newNode->next = NULL;
-    return newNode;
-}
-
-
-list* insertEnd(list* head, int value) {
-    list* newNode = createNode(value);
-
-    if (head == NULL) {
-        newNode->next = newNode;
-        return newNode;
-    }
-
-    list* temp = head;
-    while (temp->next != head) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-    newNode->next = head;
-    return head;
-}
-
-
-list* insertHead(list* head, int value) {
-    list* newNode = createNode(value);
-
-    if (head == NULL) {
-        newNode->next = newNode;
-        return newNode;
-    }
-
-    list* temp = head;
-    while (temp->next != head) {
-        temp = temp->next;
-    }
-
-    temp->next = newNode;
-    newNode->next = head;
-    return newNode;
-}
-
-
-void printList(list* head) {
-    if (head == NULL) {
-        printf("List is empty\n");
+        printf("Erreur d’allocation mémoire\n");
         return;
     }
+    newNode->data = value;
 
-    list* temp = head;
-    do {
-        printf("%d -> ", temp->data);
-        temp = temp->next;
-    } while (temp != head);
-    printf("%d\n", head->data);
+    if (head == NULL) {
+        head = tail = newNode;
+        newNode->next = head;
+    } else {
+        newNode->next = head;
+        head = newNode;
+        tail->next = head;
+    }
 }
 
+void insertAtTail(int value) {
+    node *newNode = (node *)malloc(sizeof(node));
+    if (!newNode) {
+        printf("Erreur d’allocation mémoire\n");
+        return;
+    }
+    newNode->data = value;
 
-void freeList(list** head) {
-    if (*head == NULL) return;
+    if (head == NULL) {
+        head = tail = newNode;
+        newNode->next = head;
+    } else {
+        tail->next = newNode;
+        tail = newNode;
+        tail->next = head;
+    }
+}
 
-    list* current = *head;
-    list* nextNode;
-
+void display() {
+    if (head == NULL) {
+        printf("La liste est vide.\n");
+        return;
+    }
+    node *temp = head;
+    printf("Liste : ");
     do {
-        nextNode = current->next;
-        free(current);
-        current = nextNode;
-    } while (current != *head);
+        printf("%d ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+    printf("\n");
+}
+
+void freeList() {
+    if (head == NULL) return;
+    node *temp = head;
+    do {
+        node *next = temp->next;
+        free(temp);
+        temp = next;
+    } while (temp != head);
+    head = tail = NULL;
 }
 
 int main() {
-    list* head = NULL;
-
-    head = insertHead(head, 10);
-    head = insertHead(head, 20);
-    head = insertEnd(head, 30);
-    head = insertHead(head, 40);
-    head = insertEnd(head, 50);
-
-    printf("Circular List:\n");
-    printList(head);  // 40 -> 20 -> 10 -> 30 -> 50 -> 40 (points back to 40 to show its circular nature)
-
-    freeList(&head);
+    insertAtHead(10);
+    insertAtHead(20);
+    insertAtTail(30);
+    insertAtTail(40);
+    
+    display();
+    
+    freeList(); // libère la mémoire
     return 0;
 }
