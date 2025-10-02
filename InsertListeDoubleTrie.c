@@ -48,6 +48,7 @@ Liste *insertionTrie(Liste *l, int val)
 void afficheListe(Liste *l)
 {
     Liste *p = l;
+    printf("NULL -> ");
     while (p != NULL)
     {
         printf("%d -> ", p->val);
