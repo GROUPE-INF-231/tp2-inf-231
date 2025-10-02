@@ -81,8 +81,6 @@ void freeList(list** head) {
         free(current);
         current = nextNode;
     } while (current != *head);
-
-    *head = NULL;
 }
 
 int main() {
